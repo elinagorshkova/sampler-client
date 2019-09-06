@@ -9,7 +9,6 @@ const signUpSuccess = function  () {
 
 const signInSuccess = function (data) {
   store.user = data.user
-  console.log(data)
   console.log('Signed In')
 
 }

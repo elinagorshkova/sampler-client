@@ -4,7 +4,15 @@ const api = require('./api') // link to API call file
 const ui = require('./ui') // link to UI file
 const store = require('../store')
 
-const onTest = function () {
+const addHandlers = () => {
+  $('#test').on('click', onTest)
+  $('#sign-up').on('submit', onSignUp)
+  $('#sign-in').on('submit', onSignIn)
+  $('#change-password').on('submit', onChangePassword)
+  $('#sign-out').on('click', onSignOut)
+}
+
+const onTest = function (event) {
 console.log('Hi')
 }
 
@@ -49,7 +57,9 @@ const onSignOut = function (event) {
     .catch(ui.failure)
 }
 
+
 module.exports = {
+  addHandlers,
 onTest,
 onSignUp,
 onSignIn,
