@@ -1,9 +1,12 @@
-/* eslint-env es6 */
 'use strict'
 const getFormFields = require('./../../../lib/get-form-fields') // get data from from user input
 const api = require('./api') // link to API call file
 const ui = require('./ui') // link to UI file
 const store = require('../store')
+
+const onTest = function () {
+console.log('Hi')
+}
 
 const onSignUp = function (event) {
   // prevent default action from happening
@@ -44,4 +47,12 @@ const onSignOut = function (event) {
   api.signOut()
     .then(ui.signOutSuccess)
     .catch(ui.failure)
+}
+
+module.exports = {
+onTest,
+onSignUp,
+onSignIn,
+onChangePassword,
+onSignOut
 }

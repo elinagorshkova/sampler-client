@@ -1,5 +1,3 @@
-/* eslint-env es6 */
-/* eslint-disable no-console */
 'use strict'
 const config = require('../config')
 const store = require('../store')
@@ -42,4 +40,11 @@ const signOut = function () {
       Authorization: 'Token token=' + store.user.token
     }
   })
+}
+
+module.exports = {
+  signUp,
+  signIn,
+  signOut,
+  changePassword
 }
