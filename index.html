@@ -11,7 +11,76 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
+
+
     <body>
-      <h1></h1>
+      <h1>Sampler vol 1.0</h1>
+      <h3>Please sign up to play</h3>
+          <form id='sign-up' class='border'>
+            <fieldset>
+              <div class='row'>
+                <input type="text" class ='col-4' name="credentials[email]" placeholder="Email">
+                <input type ="password" class ='col-4' name="credentials[password]" placeholder="Password">
+                <input type ="password" class ='col-4' name="credentials[password_confirmation]" placeholder="Confirm password">
+              </div>
+              <div class='row'>
+              <input type="submit" class='btn btn-primary col-12' value="Sign up!">
+            </div>
+            </fieldset>
+          </form>
+          <hr>
+          <h3>Already a user? Sign In!</h3>
+          <form id='sign-in' class='border'>
+            <fieldset>
+              <div class='row'>
+              <input type="text" class='col-6' name="credentials[email]" placeholder="Email">
+              <input type ="password" class='col-6' name="credentials[password]" placeholder="Password">
+            </div>
+            <div class='row'>
+              <input type="submit" class='btn btn-primary col-12' value="Sign in!" >
+            </div>
+            </fieldset>
+          </form>
+          <form id='change-password'>
+                  <fieldset>
+                    <legend>Change Password!</legend>
+                    <input type="password" name="passwords[old]" placeholder="Current password">
+                    <input type="password" name="passwords[new]" placeholder="New password">
+                    <input type='submit' class='btn btn-primary' value='Change Password!'>
+                  </fieldset>
+                </form>
+                <button class='btn btn-primary' id="sign-out">Sign Out</button>
+      <table>
+        <thead>
+        </thead>
+
+        <tbody>
+          <tr>
+           <td> <button class='btn btn-primary pad' id='0'></button><td>
+           <td> <button class='btn btn-primary pad' id='1'></button><td>
+           <td> <button class='btn btn-primary pad' id='2'></button><td>
+           <td> <button class='btn btn-primary pad' id='3'></button><td>
+          </tr>
+          <tr>
+           <td> <button class='btn btn-primary pad' id='4'></button><td>
+           <td> <button class='btn btn-primary pad' id='5'></button><td>
+           <td> <button class='btn btn-primary pad' id='6'></button><td>
+           <td> <button class='btn btn-primary pad' id='7'></button><td>
+          </tr>
+          <tr>
+           <td> <button class='btn btn-primary pad' id='8'></button><td>
+           <td> <button class='btn btn-primary pad' id='9'></button><td>
+           <td> <button class='btn btn-primary pad' id='10'></button><td>
+           <td> <button class='btn btn-primary pad' id='11'></button><td>
+          </tr>
+          <tr>
+           <td> <button class='btn btn-primary pad' id='12'></button><td>
+           <td> <button class='btn btn-primary pad' id='13'></button><td>
+           <td> <button class='btn btn-primary pad' id='14'></button><td>
+           <td> <button class='btn btn-primary pad' id='15'></button><td>
+          </tr>
+        </tbody>
+      </table>
+
     </body>
 </html>

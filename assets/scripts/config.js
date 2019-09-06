@@ -1,8 +1,10 @@
+/* eslint-env es6 */
+/* eslint-disable no-console */
 'use strict'
 
 let apiUrl
 const apiUrls = {
-  production: '<replace-with-heroku-url>',
+  production: '<https://obscure-coast-53043.herokuapp.com>',
   development: 'http://localhost:4741'
 }
 
