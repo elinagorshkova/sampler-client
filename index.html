@@ -55,36 +55,45 @@
                 <button class='btn btn-primary' id="sign-out">Sign Out</button>
       <table id="pad">
         <thead>
-          <div id=message></div>
+          <div id=info>
         </thead>
 
         <tbody>
           <tr>
-           <td> <button class='pad' id='49'></button><td>
-           <td> <button class='pad' id='50'></button><td>
-           <td> <button class='pad' id='51'></button><td>
-           <td> <button class='pad' id='52'></button><td>
+           <td> <button class='keys' data-key='49' id='49'></button><td>
+           <td> <button class='keys' data-key='50' id='50'></button><td>
+           <td> <button class='keys' data-key='51' id='51'></button><td>
+           <td> <button class='keys' data-key='52' id='52'></button><td>
           </tr>
           <tr>
-           <td> <button class='pad' id='81'></button><td>
-           <td> <button class='pad' id='87'></button><td>
-           <td> <button class='pad' id='69'></button><td>
-           <td> <button class='pad' id='82'></button><td>
+           <td> <button class='keys' id='81'></button><td>
+           <td> <button class='keys' id='87'></button><td>
+           <td> <button class='keys' id='69'></button><td>
+           <td> <button class='keys' id='82'></button><td>
           </tr>
           <tr>
-           <td> <button class='pad' id='65'></button><td>
-           <td> <button class='pad' id='83'></button><td>
-           <td> <button class='pad' id='68'></button><td>
-           <td> <button class='pad' id='70'></button><td>
+           <td> <button class='keys' id='65'></button><td>
+           <td> <button class='keys' id='83'></button><td>
+           <td> <button class='keys' id='68'></button><td>
+           <td> <button class='keys' id='70'></button><td>
           </tr>
           <tr>
-           <td> <button class='pad' id='90'></button><td>
-           <td> <button class='pad' id='88'></button><td>
-           <td> <button class='pad' id='67'></button><td>
-           <td> <button class='pad' id='86'></button><td>
+           <td> <button class='keys' id='90'></button><td>
+           <td> <button class='keys' id='88'></button><td>
+           <td> <button class='keys' id='67'></button><td>
+           <td> <button class='keys' id='86'></button><td>
           </tr>
         </tbody>
       </table>
+      <form id="set-collection">
+        <fieldset>
+      <div>
+        <legend>My library</legend>
+        <input type="text" name="collection_id" placeholder="Collection id">
+        <input type='submit' class='btn btn-primary' value='Set the collection'>
+      </div>
+    </fieldset>
+  </form>
 
     </body>
 </html>
