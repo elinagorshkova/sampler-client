@@ -2,11 +2,15 @@
 {{#each collections as |collection|}}
   {{log collection}}
   <section data-id="{{collection.id}}">
-    <p>Name:</p>
+    <div class="border">
+    <div class="row col-6">
+    <p>Name: </p>
     <p>
       {{limit collection.name 10}}
     </p>
-    <p>Author:</p>
+  </div>
+  <div class="row col-6"
+    <p>Author: </p>
     <p>
       {{#if collection.author}}
         {{collection.author}}
@@ -14,7 +18,11 @@
         No author provided.
       {{/if}}
     </p>
+  </div>
+    <button class="btn btn-primary set-collection">Set</button>
     <button class="btn btn-danger delete-collection">Remove</button>
+  </div>
   </section>
+
 
 {{/each}}

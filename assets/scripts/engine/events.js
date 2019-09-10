@@ -8,11 +8,11 @@ const my_pad_keys = [49, 50, 51, 52, 81, 87, 69, 82, 65, 83,68, 70, 90, 88, 67, 
 
 const addHandlers = () => {
   // $(document).on( 'keydown', playSound)
-  // $('.delete-collection').on('click', console.log("hi"))
-  $('#set-collection').on('submit', onSetCollection)
+  $('.content').on('click', '.set-collection', onSetCollection)
+  // $('#set-collection').on('submit', onSetCollection)
   $('#create-collection').on('submit', onCreateCollection)
   $('#get_all_collections').on('click', onShowAllCollections)
-   $('.content').on('click', '.delete-collection', onDeleteCollection)
+  $('.content').on('click', '.delete-collection', onDeleteCollection)
 }
 
 const onCreateCollection = function (event) {
@@ -31,8 +31,8 @@ const onCreateCollection = function (event) {
 
 const onSetCollection = function (event) {
   event.preventDefault()
-  const data = getFormFields(event.target)
-  api.setCollection(data)
+  const collectionId = $(event.target).closest('section').data('id')
+  api.setCollection(collectionId)
     .then(ui.setCollectionSuccess)
     .catch(ui.failure)
 }

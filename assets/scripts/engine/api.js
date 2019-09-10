@@ -19,9 +19,9 @@ const deleteCollection = function (collectionId) {
   })
 }
 
-const setCollection = function (data) {
+const setCollection = function (collectionId) {
   return $.ajax({
-    url: config.apiUrl + '/collections/' + data.collection_id,
+    url: config.apiUrl + '/collections/' + collectionId,
     method: 'GET'
   })
 }

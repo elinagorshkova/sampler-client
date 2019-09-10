@@ -46,7 +46,6 @@
 
       <div id="when-signed-in">
 
-
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">Sampler vol 1.0</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -87,21 +86,11 @@
         </fieldset>
         </form>
         <button class='btn btn-primary' id="sign-out">Sign Out</button>
+        <hr>
 
-
-              <form id="set-collection">
-                <fieldset>
-                    <legend>Library</legend>
-                    <input type="text" name="collection_id" placeholder="Collection id">
-                    <input type='submit' class='btn btn-primary' value='Set the collection'>
-                </fieldset>
-              </form>
-              <!-- Index-->
-                <button id='get_all_collections' class='btn btn-primary'>show all collections</button>
-                <main>
-              <div id="content" class="content"></div>
-            </main>
-
+<div class="container row">
+  <!-- Sidebar -->
+  <div class="sidebar col-6">
     <!-- Create a new colelction-->
     <h3>Create a new collection</h3>
     <form id='create-collection' class='border'>
@@ -139,8 +128,16 @@
         </div>
       </fieldset>
     </form>
+    <!-- Index-->
+    <button id='get_all_collections' class='btn btn-primary'>show all collections</button>
 
-      <!-- Sampler`s pad -->
+    <main>
+    <div id="content" class="content"></div>
+    </main>
+  </div>
+
+  <!-- Sampler`s pad -->
+  <div class="main col-6">
       <table id="pad">
         <thead  id=info>
         </thead>
@@ -172,7 +169,8 @@
         </tbody>
       </table>
     </div>
-
+    </div>
+    </div>
 
     </body>
 </html>
