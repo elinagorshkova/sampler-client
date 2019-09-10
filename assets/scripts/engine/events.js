@@ -21,7 +21,7 @@ const onCreateCollection = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   let sounds = []
-  for (let i=0; i<2; i++) {
+  for (let i=0; i<16; i++) {
       sounds.push(data[i])
   }
   sounds = "," + sounds.toString() + ','
