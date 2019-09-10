@@ -8,9 +8,11 @@ const my_pad_keys = [49, 50, 51, 52, 81, 87, 69, 82, 65, 83,68, 70, 90, 88, 67, 
 
 const addHandlers = () => {
   // $(document).on( 'keydown', playSound)
+  // $('.delete-collection').on('click', console.log("hi"))
   $('#set-collection').on('submit', onSetCollection)
   $('#create-collection').on('submit', onCreateCollection)
   $('#get_all_collections').on('click', onShowAllCollections)
+   $('.content').on('click', '.delete-collection', onDeleteCollection)
 }
 
 const onCreateCollection = function (event) {
@@ -21,24 +23,26 @@ const onCreateCollection = function (event) {
       sounds.push(data[i])
   }
   sounds = "," + sounds.toString() + ','
-  // sounds = "'" + sounds.toString() + "'"
-  console.log('Sounds are'  + sounds)
   data.collection.sounds = sounds
-  console.log(data)
-//  make tha api call
   api.createCollection(data)
-  // handle sucess
-    .then(ui.signUpSuccess)
-  // handle fail
-    .catch(ui.authFailure)
+    .then(ui.createCollectionSuccess)
+    .catch(ui.failure)
 }
 
 const onSetCollection = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  api.createCollection(data)
-    .then(ui.createCollectionSuccess)
+  api.setCollection(data)
+    .then(ui.setCollectionSuccess)
     .catch(ui.failure)
+}
+const onDeleteCollection = function (event) {
+  event.preventDefault()
+  const collectionId = $(event.target).closest('section').data('id')
+  api.deleteCollection(collectionId)
+    .then(ui.DeleteCollectionSuccess)
+    .catch(ui.failure)
+
 }
 
 const playSound = function (event) {
@@ -63,6 +67,7 @@ module.exports = {
   addHandlers,
   playSound,
   onCreateCollection,
+  onDeleteCollection,
   onSetCollection,
   onShowAllCollections
 }

@@ -14,51 +14,137 @@
 
 
     <body>
-      <h1>Sampler vol 1.0</h1>
 
-      <button id="test" class="btn btn-primary">Test</button>
-
-      <h3>Please sign up to play</h3>
-          <form id='sign-up' class='border'>
-            <fieldset>
-              <div class='row'>
-                <input type="text" class ='col-4' name="credentials[email]" placeholder="Email">
-                <input type ="password" class ='col-4' name="credentials[password]" placeholder="Password">
-                <input type ="password" class ='col-4' name="credentials[password_confirmation]" placeholder="Confirm password">
-              </div>
-              <div class='row'>
-              <input type="submit" class='btn btn-primary col-12' value="Sign up!">
-            </div>
-            </fieldset>
-          </form>
-          <hr>
-          <h3>Already a user? Sign In!</h3>
-          <form id='sign-in' class='border'>
-            <fieldset>
-              <div class='row'>
+      <div id="when-not-signed-in">
+       <form id='sign-up' class='border'>
+        <fieldset>
+          <div class='row'>
+            <input type="text" class='col-4' name="credentials[email]" placeholder="Email">
+            <input type="password" class='col-4' name="credentials[password]" placeholder="Password">
+            <input type="password" class='col-4' name="credentials[password_confirmation]" placeholder="Confirm password">
+          </div>
+          <div class='row'>
+            <input type="submit" class='btn btn-primary col-12' value="Sign up!">
+          </div>
+        </fieldset>
+        </form>
+        <hr>
+        <h3>Already a user? Sign In!</h3>
+        <form id='sign-in' class='border'>
+          <fieldset>
+            <div class='row'>
               <input type="text" class='col-6' name="credentials[email]" placeholder="Email">
-              <input type ="password" class='col-6' name="credentials[password]" placeholder="Password">
+              <input type="password" class='col-6' name="credentials[password]" placeholder="Password">
             </div>
             <div class='row'>
-              <input type="submit" class='btn btn-primary col-12' value="Sign in!" >
+              <input type="submit" class='btn btn-primary col-12' value="Sign in!">
             </div>
-            </fieldset>
-          </form>
-          <form id='change-password'>
-                  <fieldset>
-                    <legend>Change Password!</legend>
-                    <input type="password" name="passwords[old]" placeholder="Current password">
-                    <input type="password" name="passwords[new]" placeholder="New password">
-                    <input type='submit' class='btn btn-primary' value='Change Password!'>
-                  </fieldset>
-                </form>
-                <button class='btn btn-primary' id="sign-out">Sign Out</button>
-      <table id="pad">
-        <thead>
-          <div id=info>
-        </thead>
+          </fieldset>
+        </form>
+        <div id="sign-in-message"></div>
+      </div>
 
-        <tbody> <!-- Sampler`s pad -->
+      <div id="when-signed-in">
+
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Sampler vol 1.0</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <button type="button" class="btn" data-toggle="modal" data-target="#authModal">
+                Auth
+              </button>
+            </li>
+            <li class="nav-item">
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#libraryModal">
+                Library
+              </button>
+            </li>
+            <li class="nav-item">
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#authModal">
+                Launch demo modal
+              </button>
+            </li>
+            <li class="nav-item">
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#authModal">
+                Launch demo modal
+              </button>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div id="auth-when-signed-in">
+         <form id='change-password'>
+        <fieldset>
+          <legend>Change Password!</legend>
+          <input type="password" name="passwords[old]" placeholder="Current password">
+          <input type="password" name="passwords[new]" placeholder="New password">
+          <input type='submit' class='btn btn-primary' value='Change Password!'>
+        </fieldset>
+        </form>
+        <button class='btn btn-primary' id="sign-out">Sign Out</button>
+
+
+              <form id="set-collection">
+                <fieldset>
+                    <legend>Library</legend>
+                    <input type="text" name="collection_id" placeholder="Collection id">
+                    <input type='submit' class='btn btn-primary' value='Set the collection'>
+                </fieldset>
+              </form>
+              <!-- Index-->
+                <button id='get_all_collections' class='btn btn-primary'>show all collections</button>
+                <main>
+              <div id="content" class="content"></div>
+            </main>
+
+    <!-- Create a new colelction-->
+    <h3>Create a new collection</h3>
+    <form id='create-collection' class='border'>
+      <fieldset>
+        <div class='row'>
+          <input type="text" class='col-6' name="collection[name]" placeholder="Name">
+          <input type="text" class='col-6' name="collection[author]" placeholder="Author">
+        </div>
+        <div class='row'>
+          <input id="0" type="text" class='col-3' name="0" placeholder="sound 1">
+          <input id="1" type="text" class='col-3' name="1" placeholder="sound 2">
+          <input id="2" type="text" class='col-3' name="2" placeholder="sound 3">
+          <input id="3" type="text" class='col-3' name="3" placeholder="sound 4">
+        </div>
+        <div class='row'>
+          <input id="4" type="text" class='col-3' name="4" placeholder="sound 5">
+          <input id="5" type="text" class='col-3' name="5" placeholder="sound 6">
+          <input id="6" type="text" class='col-3' name="6" placeholder="sound 7">
+          <input id="7" type="text" class='col-3' name="7" placeholder="sound 8">
+        </div>
+        <div class='row'>
+          <input id="8" type="text" class='col-3' name="8" placeholder="sound 9">
+          <input id="9" type="text" class='col-3' name="9" placeholder="sound 10">
+          <input id="10" type="text" class='col-3' name="10" placeholder="sound 11">
+          <input id="11" type="text" class='col-3' name="11" placeholder="sound 12">
+        </div>
+        <div class='row'>
+          <input id="12" type="text" class='col-3' name="12" placeholder="sound 13">
+          <input id="13" type="text" class='col-3' name="13" placeholder="sound 14">
+          <input id="14" type="text" class='col-3' name="14" placeholder="sound 15">
+          <input id="15" type="text" class='col-3' name="15" placeholder="sound 16">
+        </div>
+        <div class='row'>
+          <input type="submit" class='btn btn-primary col-12' value="CREATE!">
+        </div>
+      </fieldset>
+    </form>
+
+      <!-- Sampler`s pad -->
+      <table id="pad">
+        <thead  id=info>
+        </thead>
+        <tbody>
           <tr>
            <td> <button class='keys' id='49'></button><td>
            <td> <button class='keys' id='50'></button><td>
@@ -85,42 +171,8 @@
           </tr>
         </tbody>
       </table>
-      <form id="set-collection">
-        <fieldset>
-      <div>
-        <legend>Library</legend>
-        <input type="text" name="collection_id" placeholder="Collection id">
-        <input type='submit' class='btn btn-primary' value='Set the collection'>
-    </fieldset>
-  </form>
+    </div>
 
-  <!-- Index-->
-  <div class="all collections">
-    all collections
-    <button id='get_all_collections' class='btn btn-primary'>show all collections</button>
-    <div></div>
-    <div>
-</div>
-
-<!-- Create a new colelction-->
-<h3>CReate a new collection</h3>
-    <form id='create-collection' class='border'>
-      <fieldset>
-        <div class='row'>
-          <input type="text" class ='col-4' name="collection[name]" placeholder="Name">
-          <input type ="text" class ='col-4' name="collection[author]" placeholder="Author">
-            <!-- <input id="0" type ="text" class ='col-4' name="sample[sounds]" placeholder="sound1">
-              <input id="1" type ="text" class ='col-4' name="sample[sounds]" placeholder="sound2"> -->
-              <fieldset>
-                <input id="0" type ="text" class ='col-4' name="0" placeholder="sound1">
-                  <input id="1" type ="text" class ='col-4' name="1" placeholder="sound2">
-              </fieldset>
-        </div>
-        <div class='row'>
-        <input type="submit" class='btn btn-primary col-12' value="CREATE!">
-      </div>
-      </fieldset>
-    </form>
 
     </body>
 </html>

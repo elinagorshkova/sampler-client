@@ -4,7 +4,6 @@ const config = require('../config')
 const store = require('../store')
 
 const createCollection = function (data) {
-
   return $.ajax({
     url: config.apiUrl + '/collections/',
     method: 'POST',
@@ -12,8 +11,15 @@ const createCollection = function (data) {
   })
 }
 
+const deleteCollection = function (collectionId) {
+  console.log("collection id" + collectionId)
+  return $.ajax({
+    url: config.apiUrl + '/collections/' + collectionId,
+    method: 'DELETE'
+  })
+}
+
 const setCollection = function (data) {
-  console.log(data)
   return $.ajax({
     url: config.apiUrl + '/collections/' + data.collection_id,
     method: 'GET'
@@ -29,7 +35,8 @@ const showAllCollections = function () {
 
 
 module.exports = {
-  createCollection,
+createCollection,
+deleteCollection,
 setCollection,
 showAllCollections
 }

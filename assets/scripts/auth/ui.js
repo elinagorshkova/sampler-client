@@ -4,12 +4,16 @@
 const store = require('../store')
 
 const signUpSuccess = function  () {
-  console.log   ('Signed Up')
+  console.log('Signed Up Successfully')
+  $('#sign-in-message').text('Signed Up Successfully')
 }
 
 const signInSuccess = function (data) {
   store.user = data.user
-  console.log('Signed In')
+  $('#when-signed-in').show()
+  $('#sign-in-message').text('Signed In Successfully')
+  $('#when-not-signed-in').hide()
+  console.log('Signed In Successfully')
 
 }
 
