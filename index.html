@@ -58,12 +58,12 @@
           <div id=info>
         </thead>
 
-        <tbody>
+        <tbody> <!-- Sampler`s pad -->
           <tr>
-           <td> <button class='keys' data-key='49' id='49'></button><td>
-           <td> <button class='keys' data-key='50' id='50'></button><td>
-           <td> <button class='keys' data-key='51' id='51'></button><td>
-           <td> <button class='keys' data-key='52' id='52'></button><td>
+           <td> <button class='keys' id='49'></button><td>
+           <td> <button class='keys' id='50'></button><td>
+           <td> <button class='keys' id='51'></button><td>
+           <td> <button class='keys' id='52'></button><td>
           </tr>
           <tr>
            <td> <button class='keys' id='81'></button><td>
@@ -88,12 +88,39 @@
       <form id="set-collection">
         <fieldset>
       <div>
-        <legend>My library</legend>
+        <legend>Library</legend>
         <input type="text" name="collection_id" placeholder="Collection id">
         <input type='submit' class='btn btn-primary' value='Set the collection'>
-      </div>
     </fieldset>
   </form>
+
+  <!-- Index-->
+  <div class="all collections">
+    all collections
+    <button id='get_all_collections' class='btn btn-primary'>show all collections</button>
+    <div></div>
+    <div>
+</div>
+
+<!-- Create a new colelction-->
+<h3>CReate a new collection</h3>
+    <form id='create-collection' class='border'>
+      <fieldset>
+        <div class='row'>
+          <input type="text" class ='col-4' name="collection[name]" placeholder="Name">
+          <input type ="text" class ='col-4' name="collection[author]" placeholder="Author">
+            <!-- <input id="0" type ="text" class ='col-4' name="sample[sounds]" placeholder="sound1">
+              <input id="1" type ="text" class ='col-4' name="sample[sounds]" placeholder="sound2"> -->
+              <fieldset>
+                <input id="0" type ="text" class ='col-4' name="0" placeholder="sound1">
+                  <input id="1" type ="text" class ='col-4' name="1" placeholder="sound2">
+              </fieldset>
+        </div>
+        <div class='row'>
+        <input type="submit" class='btn btn-primary col-12' value="CREATE!">
+      </div>
+      </fieldset>
+    </form>
 
     </body>
 </html>

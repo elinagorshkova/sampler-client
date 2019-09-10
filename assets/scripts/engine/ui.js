@@ -12,6 +12,11 @@ const setCollectionSuccess = function  (data) {
     console.log(store.pad)
   }
 
+  const showAllCollectionsSuccess = function (data) {
+    console.log(data)
+    console.log('Yaaay')
+  }
+
 
 const failure = function () {
   console.error('Failure')
@@ -21,5 +26,6 @@ const failure = function () {
 
 module.exports = {
 setCollectionSuccess,
+showAllCollectionsSuccess,
 failure
 }

@@ -3,12 +3,15 @@
 const config = require('../config')
 const store = require('../store')
 
-// const setCollection = function (data) {
-//     store.data = $.ajax({
-//       url: config.apiUrl + '/' + data.id,
-//       method: 'GET',
-//     })
-// }
+const createCollection = function (data) {
+
+  return $.ajax({
+    url: config.apiUrl + '/collections/',
+    method: 'POST',
+    data
+  })
+}
+
 const setCollection = function (data) {
   console.log(data)
   return $.ajax({
@@ -17,7 +20,16 @@ const setCollection = function (data) {
   })
 }
 
+const showAllCollections = function () {
+  return $.ajax({
+    url: config.apiUrl + '/collections',
+    method: 'GET'
+  })
+}
+
 
 module.exports = {
-setCollection
+  createCollection,
+setCollection,
+showAllCollections
 }

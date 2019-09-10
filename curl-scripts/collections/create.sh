@@ -4,7 +4,8 @@ curl --include --request POST "http://localhost:4741/collections" \
   --data '{
     "collection": {
         "name": "'"${NAME}"'",
-      "author": "'"${AUTHOR}"'"
+      "author": "'"${AUTHOR}"'",
+      "sounds": "'"${SOUNDS}"'"
     }
   }'
 
