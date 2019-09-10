@@ -2,11 +2,11 @@
 {{#each collections as |collection|}}
   {{log collection}}
   <section data-id="{{collection.id}}">
-    <div class="border">
+    <div class="container border">
     <div class="row col-6">
     <p>Name: </p>
     <p>
-      {{limit collection.name 10}}
+      {{limit collection.name 15}}
     </p>
   </div>
   <div class="row col-6"
@@ -20,6 +20,7 @@
     </p>
   </div>
     <button class="btn btn-primary set-collection">Set</button>
+    <button type="button" class="btn btn-primary" id="update" data-toggle="modal" data-target="#update-collection">Update</button>
     <button class="btn btn-danger delete-collection">Remove</button>
   </div>
   </section>

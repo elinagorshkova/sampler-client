@@ -4,15 +4,17 @@ const api = require('./api') // link to API call file
 const ui = require('./ui') // link to UI file
 const store = require('../store')
 
-const my_pad_keys = [49, 50, 51, 52, 81, 87, 69, 82, 65, 83,68, 70, 90, 88, 67, 86]
+const my_pad_keys = [49, 50, 51, 52, 81, 87, 69, 82, 65, 83, 68, 70, 90, 88, 67, 86]
 
 const addHandlers = () => {
-  // $(document).on( 'keydown', playSound)
+  $(document).on( 'keydown', playSound)
+  // $(document).on( 'keydown click', playSound)
   $('.content').on('click', '.set-collection', onSetCollection)
-  // $('#set-collection').on('submit', onSetCollection)
+  $('.content').on('click', '#update', onUpdate)
+  $('#update-collection').on('submit', onUpdateCollection)
+  $('.content').on('click', '.delete-collection', onDeleteCollection)
   $('#create-collection').on('submit', onCreateCollection)
   $('#get_all_collections').on('click', onShowAllCollections)
-  $('.content').on('click', '.delete-collection', onDeleteCollection)
 }
 
 const onCreateCollection = function (event) {
@@ -29,6 +31,14 @@ const onCreateCollection = function (event) {
     .catch(ui.failure)
 }
 
+const onDeleteCollection = function (event) {
+  event.preventDefault()
+  const collectionId = $(event.target).closest('section').data('id')
+  api.deleteCollection(collectionId)
+    .then(ui.DeleteCollectionSuccess)
+    .catch(ui.failure)
+}
+
 const onSetCollection = function (event) {
   event.preventDefault()
   const collectionId = $(event.target).closest('section').data('id')
@@ -36,14 +46,28 @@ const onSetCollection = function (event) {
     .then(ui.setCollectionSuccess)
     .catch(ui.failure)
 }
-const onDeleteCollection = function (event) {
-  event.preventDefault()
+
+const onUpdate = function () {
   const collectionId = $(event.target).closest('section').data('id')
-  api.deleteCollection(collectionId)
-    .then(ui.DeleteCollectionSuccess)
-    .catch(ui.failure)
+  store.collectionId = collectionId
 
 }
+
+const onUpdateCollection = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  let sounds = []
+  for (let i=0; i<16; i++) {
+      sounds.push(data[i])
+  }
+  console.log("sounds are: " + sounds)
+  sounds = "," + sounds.toString() + ','
+  data.collection.sounds = sounds
+  api.updateCollection(data)
+    .then(ui.updateCollectionSuccess)
+    .catch(ui.failure)
+}
+
 
 const playSound = function (event) {
  let key = event.which
@@ -69,5 +93,7 @@ module.exports = {
   onCreateCollection,
   onDeleteCollection,
   onSetCollection,
-  onShowAllCollections
+  onShowAllCollections,
+  onUpdateCollection,
+  onUpdate
 }
