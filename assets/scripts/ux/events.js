@@ -6,10 +6,15 @@ const store = require('../store')
 
 const addHandlers = () => {
   $(document).ready(onPageLoads)
+  $(document).ready(function () {
+      $('#sidebarCollapse').on('click', function () {
+          $('#sidebar').toggleClass('active');
+      })
+  })
 }
 
 const onPageLoads = function () {
-  $('#when-signed-in').hide()
+  $('.when-signed-in').hide()
 }
 
 module.exports = {

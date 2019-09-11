@@ -10,7 +10,7 @@ const signUpSuccess = function  () {
 
 const signInSuccess = function (data) {
   store.user = data.user
-  $('#when-signed-in').show()
+  $('.when-signed-in').show()
   $('#sign-in-message').text('Signed In Successfully')
   $('#when-not-signed-in').hide()
   console.log('Signed In Successfully')
