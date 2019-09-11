@@ -4,61 +4,64 @@
       <title>Example</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags-->
+      <!--From The Browser Template-->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-
-      <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+
+      <!-- Bootstrap style imported -->
+      <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+      <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     </head>
 
-
     <body>
-
-      <div id="when-not-signed-in">
-       <form id='sign-up' class='border'>
-        <fieldset>
-          <div class='row'>
-            <input type="text" class='col-4' name="credentials[email]" placeholder="Email">
-            <input type="password" class='col-4' name="credentials[password]" placeholder="Password">
-            <input type="password" class='col-4' name="credentials[password_confirmation]" placeholder="Confirm password">
+      <!--Sign In/Sign Up form to disappear after successful login -->
+    <div id="when-not-signed-in">
+      <div class="wrapper fadeInDown">
+        <div id="formContent">
+          <!-- Login Form -->
+          <form id='sign-up'>
+            <fieldset>
+              <input type="text" class="fadeIn first" name="credentials[email]" placeholder="email">
+              <input type="text" class="fadeIn second" name="credentials[password]" placeholder="password">
+              <input type="text" class="fadeIn third" name="credentials[password_confirmation]" placeholder="confirm password">
+              <input type="submit" class="fadeIn fourth" value="Sign Up">
+            </fieldset>
+          </form>
+          <!-- Remind Passowrd -->
+          <div id="formFooter">
+            <a class="underlineHover">Already a user? Sign In</a>
           </div>
-          <div class='row'>
-            <input type="submit" class='btn btn-primary col-12' value="Sign up!">
-          </div>
-        </fieldset>
-        </form>
-        <hr>
-        <h3>Already a user? Sign In!</h3>
-        <form id='sign-in' class='border'>
-          <fieldset>
-            <div class='row'>
-              <input type="text" class='col-6' name="credentials[email]" placeholder="Email">
-              <input type="password" class='col-6' name="credentials[password]" placeholder="Password">
-            </div>
-            <div class='row'>
-              <input type="submit" class='btn btn-primary col-12' value="Sign in!">
-            </div>
-          </fieldset>
-        </form>
-        <div id="sign-in-message"></div>
-      </div>
-
-      <div id="when-signed-in">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Sampler vol 1.0</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">My Account</button>
-            </li>
-          </ul>
+          <form id='sign-in'>
+            <fieldset>
+              <input type="text" class="fadeIn first" name="credentials[email]" placeholder="email">
+              <input type="text" class="fadeIn second" name="credentials[password]" placeholder="password">
+              <input type="submit" class="fadeIn third" value="Sign In">
+            </fieldset>
+          </form>
         </div>
-      </nav>
+      </div>
+    </div>
 
-      <div id="auth-when-signed-in">
+<div id="auth-when-signed-in">
+  <div id="when-signed-in">
+  <nav class="navbar">
+    <a>Sampler vol 1.0</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"></button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <button type="button" class="button" data-toggle="modal" data-target=".bd-example-modal-sm">My Account</button>
+        </li>
+        <li>
+          <button id='get_all_collections' class='button'>show all collections</button>
+          <button type="button" class="button" data-toggle="modal" data-target="#create-collection">Create collection</button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
 
 <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm">
@@ -68,22 +71,25 @@
        <legend>Change Password!</legend>
        <input type="password" name="passwords[old]" placeholder="Current password">
        <input type="password" name="passwords[new]" placeholder="New password">
-       <input type='submit' class='btn btn-primary' value='Change Password!'>
+       <input type='submit' class='button' value='Change Password!'>
      </fieldset>
      </form>
-     <button class='btn btn-primary' id="sign-out">Sign Out</button>
+     <button class='button' id="sign-out">Sign Out</button>
     </div>
   </div>
 </div>
+</div>
+</div>
 
-<hr>
 
-<div class="container row">
+<div class="row">
+  <div class="content-header">
+  </div>
   <!-- Sidebar -->
-  <div class="sidebar col-4">
-    <!-- Create a new colelction. Modal-->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create-collection">Create collection</button>
-<div class="modal fade" id="create-collection" tabindex="-1" role="dialog" aria-labelledby="createCollectionModalLabel" aria-hidden="true">
+  <!-- <div class="sidebar">
+<div class="sidebar-content" id="library"></div>
+<!-- Modal Create-->
+<!-- <div class="modal fade" id="create-collection" tabindex="-1" role="dialog" aria-labelledby="createCollectionModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <h3>Create a new collection</h3>
@@ -118,7 +124,7 @@
             <input class="15" type="text" class='col-3' name="15" placeholder="sound 16">
           </div>
           <div class='row'>
-            <input type="submit" class='btn btn-primary col-12' value="CREATE!">
+            <input type="submit" class='button col-12' value="CREATE!">
           </div>
         </fieldset>
       </form>
@@ -126,7 +132,8 @@
   </div>
 </div>
 
-<div class="modal fade" id="update-collection" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<!-- Modal Update-->
+ <div class="modal fade" id="update-collection" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <h3>Update Collection</h3>
@@ -161,57 +168,50 @@
             <input class="15" type="text" class='col-3' name="15" placeholder="sound 16">
           </div>
           <div class='row'>
-            <input type="submit" class='btn btn-primary col-12' value="UPDATE!">
+            <input type="submit" class='button col-12' value="UPDATE!">
           </div>
         </fieldset>
       </form>
     </div>
   </div>
 </div>
-
-    <!-- Index-->
-    <button id='get_all_collections' class='btn btn-primary'>show all collections</button>
-
-    <main>
-    <div id="content" class="content"></div>
-    </main>
   </div>
 
   <!-- Sampler`s pad -->
-  <div class="main col-6">
-      <table id="pad">
-        <thead  id=info>
-        </thead>
-        <tbody>
-          <tr>
-           <td> <button class='keys' id='49'></button><td>
-           <td> <button class='keys' id='50'></button><td>
-           <td> <button class='keys' id='51'></button><td>
-           <td> <button class='keys' id='52'></button><td>
-          </tr>
-          <tr>
-           <td> <button class='keys' id='81'></button><td>
-           <td> <button class='keys' id='87'></button><td>
-           <td> <button class='keys' id='69'></button><td>
-           <td> <button class='keys' id='82'></button><td>
-          </tr>
-          <tr>
-           <td> <button class='keys' id='65'></button><td>
-           <td> <button class='keys' id='83'></button><td>
-           <td> <button class='keys' id='68'></button><td>
-           <td> <button class='keys' id='70'></button><td>
-          </tr>
-          <tr>
-           <td> <button class='keys' id='90'></button><td>
-           <td> <button class='keys' id='88'></button><td>
-           <td> <button class='keys' id='67'></button><td>
-           <td> <button class='keys' id='86'></button><td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    </div>
-    </div>
+   <div class="main">
+    <table id="pad">
+      <tbody>
+        <tr>
+          <td> <button class='keys' id='49'></button>
+          <td> <button class='keys' id='50'></button>
+          <td> <button class='keys' id='51'></button>
+          <td> <button class='keys' id='52'></button>
+          <td>
+        </tr>
+        <tr>
+          <td> <button class='keys' id='81'></button>
+          <td> <button class='keys' id='87'></button>
+          <td> <button class='keys' id='69'></button>
+          <td> <button class='keys' id='82'></button>
+        </tr>
+        <tr>
+          <td> <button class='keys' id='65'></button>
+          <td> <button class='keys' id='83'></button>
+          <td> <button class='keys' id='68'></button>
+          <td> <button class='keys' id='70'></button>
+        </tr>
+        <tr>
+          <td> <button class='keys' id='90'></button>
+          <td> <button class='keys' id='88'></button>
+          <td> <button class='keys' id='67'></button>
+          <td> <button class='keys' id='86'></button>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+</div>
 
-    </body>
-</html>
+
+  </body>
+  </html>

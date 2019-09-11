@@ -24,7 +24,7 @@ const setCollectionSuccess = function  (data) {
   const showAllCollectionsSuccess = function (data) {
     console.log(data)
     const showCollectionsHtml = showCollectionsTemplate({ collections: data.collections })
-    $('.content').html(showCollectionsHtml)
+    $('#library').html(showCollectionsHtml)
   }
 
 

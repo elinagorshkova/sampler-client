@@ -9,16 +9,17 @@ const my_pad_keys = [49, 50, 51, 52, 81, 87, 69, 82, 65, 83, 68, 70, 90, 88, 67,
 const addHandlers = () => {
   $(document).on( 'keydown', playSound)
   // $(document).on( 'keydown click', playSound)
-  $('.content').on('click', '.set-collection', onSetCollection)
-  $('.content').on('click', '#update', onUpdate)
+  $('#library').on('click', '.set-collection', onSetCollection)
+  $('#library').on('click', '#update', onUpdate)
   $('#update-collection').on('submit', onUpdateCollection)
-  $('.content').on('click', '.delete-collection', onDeleteCollection)
+  $('#library').on('click', '.delete-collection', onDeleteCollection)
   $('#create-collection').on('submit', onCreateCollection)
   $('#get_all_collections').on('click', onShowAllCollections)
 }
 
 const onCreateCollection = function (event) {
   event.preventDefault()
+  console.log("token is" + store.user.token)
   const data = getFormFields(event.target)
   let sounds = []
   for (let i=0; i<16; i++) {

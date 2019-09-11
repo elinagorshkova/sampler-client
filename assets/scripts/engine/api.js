@@ -7,6 +7,9 @@ const createCollection = function (data) {
   return $.ajax({
     url: config.apiUrl + '/collections/',
     method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
     data
   })
 }
@@ -15,14 +18,17 @@ const deleteCollection = function (collectionId) {
   console.log("collection id" + collectionId)
   return $.ajax({
     url: config.apiUrl + '/collections/' + collectionId,
-    method: 'DELETE'
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 
 const setCollection = function (collectionId) {
   return $.ajax({
     url: config.apiUrl + '/collections/' + collectionId,
-    method: 'GET'
+    method: 'GET',
   })
 }
 
@@ -38,6 +44,9 @@ const updateCollection = function (data) {
   return $.ajax({
     url: config.apiUrl + '/collections/' + store.collectionId,
     method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
     data
   })
 }

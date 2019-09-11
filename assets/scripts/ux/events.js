@@ -9,7 +9,7 @@ const addHandlers = () => {
 }
 
 const onPageLoads = function () {
-  // $('#when-signed-in').hide()
+  $('#when-signed-in').hide()
 }
 
 module.exports = {
