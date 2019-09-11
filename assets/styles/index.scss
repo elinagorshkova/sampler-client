@@ -1,7 +1,6 @@
 @import '~bootstrap/scss/bootstrap';
 @import 'auth_form.scss';
 @import 'theme.scss';
-@import 'sidebar.scss';
 
 @keyframes gradientBG {
 	0% {
@@ -20,13 +19,23 @@ body {
 	background-size: 400% 400%;
 	animation: gradientBG 15s ease infinite;
 }
+
+button {
+	color: #92badd;
+}
+button.hover {
+	
+}
 #content {
     width: 30em;
     overflow-x: auto;
     white-space: nowrap;
 }
+.handlebar-field {
+	color: $blue;
+}
 
-.keys {
+.button-keys {
   height: 100px;
   width: 100px;
   background-color: $gray;
@@ -34,7 +43,8 @@ body {
 }
 
 .navbar {
-	background-color: $blue;
+color: #92badd;
+background-color: $blue;
 position: fixed;
 top: 0;
 width: 100%;
@@ -43,9 +53,9 @@ z-index: +1;
 
 
 .main {
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-left: 25%;
   margin-top: 10%;
   position: fixed;
